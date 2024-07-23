@@ -41,11 +41,10 @@ pipeline    {
 	 }
 	 stage('Deploy APIs to Dev Environment'){
 		steps{
-			sh '''#!/bin/bash
+			sh """
 			apictl login dev -u admin -p admin -k
-			message=$(apictl vcs deploy -e dev)
-			echo $message
-			'''
+			apictl vcs deploy -e dev
+			"""
 		}
 	 }
 	
