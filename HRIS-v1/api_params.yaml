@@ -1,0 +1,18 @@
+environments:
+  - name: development
+    endpoints:
+        production:
+            url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/test
+        sandbox:
+            url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/api
+  - name: production
+    endpoints:
+        production:
+            url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/test
+        sandbox:
+            url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/api
+
+deploy:
+  import:
+    update: true
+    preserveProvider: true
