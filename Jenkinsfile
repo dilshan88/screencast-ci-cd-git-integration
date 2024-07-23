@@ -43,7 +43,7 @@ pipeline    {
 		steps{
 			sh """
 			apictl login dev -u admin -p admin -k
-			apictl bundle -s C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV -d upload
+			apictl gen deployment-dir -s C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/HRIS-v1
 			apictl vcs deploy -e dev
 			"""
 		}
