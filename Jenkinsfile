@@ -42,15 +42,9 @@ pipeline    {
 	 stage('Deploy APIs to Dev Environment'){
 		steps{
 			sh """
-			#apictl login dev -u admin -p admin -k
-			#apictl gen deployment-dir -s C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/HRIS-v1
-			#apictl vcs deploy -e dev
-			# derive param content name 
-					# login to the dev environment
-					apictl login dev -u admin -p admin -k
-					# import the artifact
-					apictl import api -f HRIS-v1 --params DeploymentArtifacts_HRIS-v1 -e dev --update -k
-				
+			apictl login dev -u admin -p admin -k
+			message=$(apictl vcs deploy -e dev)
+			echo $message
 			"""
 		}
 	 }
