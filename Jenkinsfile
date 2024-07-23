@@ -44,7 +44,7 @@ pipeline    {
 			sh """
 			apictl login dev -u admin -p admin -k
 			apictl vcs status -e dev
-			apictl import api -f C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/HRIS-v1 --environment dev --params C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/HRIS-v1/params.yaml
+			apictl import api -f C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/HRIS-v1 --environment dev --params C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/HRIS-v1/params.yaml --update -k
 			#apictl vcs deploy -e dev
 			"""
 		}
