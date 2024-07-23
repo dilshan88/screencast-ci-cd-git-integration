@@ -69,7 +69,7 @@ data:
   endpointConfig:
     endpoint_type: http
     sandbox_endpoints:
-      url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/api
+      url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/dilshan_test
     production_endpoints:
       url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/api
   endpointImplementationType: ENDPOINT
