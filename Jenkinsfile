@@ -46,19 +46,12 @@ pipeline    {
 			#apictl gen deployment-dir -s C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/HRIS-v1
 			#apictl vcs deploy -e dev
 			# derive param content name 
-					fileName=$(echo HRIS-v1 | sed 's/\\(.*\\).zip/\\1 /')
-					deploymentName=$(echo $fileName | sed 's/\\(.*\\)_/\\1-/')
-					paramPath="DeploymentArtifacts_"$deploymentName
-					echo "Param path :"$paramPath
 					# login to the dev environment
 					apictl login dev -u admin -p admin -k
 					# import the artifact
-					message=$(apictl import api -f $name --params $paramPath -e dev --update -k)
-					if [ "$message" = "Successfully imported API." ]; then
-						echo "Successfully imported API."
-					else
-						echo $message
-					fi
+					message=$(apictl import api -f HRIS-v1 --params DeploymentArtifacts_HRIS-v1 -e dev --update -k)
+					echo message
+				
 			"""
 		}
 	 }
