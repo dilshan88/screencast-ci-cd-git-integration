@@ -1,18 +1,11 @@
 environments:
-  - name: development
-    endpoints:
-        production:
-            url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/test
-        sandbox:
-            url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/api
-  - name: production
-    endpoints:
-        production:
-            url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/test
-        sandbox:
-            url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/api
-
-deploy:
-  import:
-    update: true
-    preserveProvider: true
+    - name: dev
+      configs:
+          endpoints:
+              production:
+                  url: https://petstore.swagger.io/v2/dilshan
+                  config:
+                      retryTimeOut: 10
+                      retryDelay: 5
+              sandbox:
+                  url: https://sand.petstore.swagger.io/v2/dilshan
