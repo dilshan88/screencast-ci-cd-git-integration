@@ -27,13 +27,13 @@ pipeline    {
                 envs=$(apictl get envs --format "{{.Name}}")
                 if [ -z "$envs" ]; 
                 then 
-                    echo "No environment configured. Setting dev environment.."
-                    apictl add env dev --apim https://localhost:9444 
+                    echo "No environment configured. Setting Prod environment.."
+                    apictl add env prod --apim https://localhost:9444 
                 else
                     echo "Environments :"$envs
-                    if [[ $envs != *"dev"* ]]; then
-                    echo "Dev environment is not configured. Setting dev environment.."
-                    apictl add env dev --apim https://localhost:9444 
+                    if [[ $envs != *"prod"* ]]; then
+                    echo "Prod environment is not configured. Setting dev environment.."
+                    apictl add env prod --apim https://localhost:9444 
                     fi
                 fi
                 '''
