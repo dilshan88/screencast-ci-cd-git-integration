@@ -42,8 +42,8 @@ pipeline    {
 	 stage('Deploy APIs to Dev Environment'){
 		steps{
 			sh """
-			apictl login dev -u admin -p admin -k
-			apictl vcs deploy -e dev
+			apictl login prod -u admin -p admin -k
+			apictl vcs deploy -e prod
 			"""
 		}
 	 }
