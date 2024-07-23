@@ -36,6 +36,14 @@ paths:
         explode: false
         schema:
           type: string
+       -
+        name: test-dilshan
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       responses:
         "200":
           description: ok
