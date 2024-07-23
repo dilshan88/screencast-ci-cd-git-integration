@@ -49,8 +49,7 @@ pipeline    {
 					# login to the dev environment
 					apictl login dev -u admin -p admin -k
 					# import the artifact
-					message=$(apictl import api -f HRIS-v1 --params DeploymentArtifacts_HRIS-v1 -e dev --update -k)
-					echo message
+					apictl import api -f HRIS-v1 --params DeploymentArtifacts_HRIS-v1 -e dev --update -k
 				
 			"""
 		}
