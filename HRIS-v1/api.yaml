@@ -1,0 +1,100 @@
+type: api
+version: v4.3.0
+data:
+  id: 3010ace1-87d4-4ca2-878e-d4c374ee78b4
+  name: HRIS
+  context: /str/sw
+  version: v1
+  provider: admin
+  lifeCycleStatus: PUBLISHED
+  responseCachingEnabled: false
+  cacheTimeout: 300
+  hasThumbnail: false
+  isDefaultVersion: false
+  isRevision: false
+  revisionId: 0
+  enableSchemaValidation: false
+  enableSubscriberVerification: false
+  type: HTTP
+  transport:
+   - http
+   - https
+  tags: []
+  policies:
+   - Unlimited
+  authorizationHeader: Authorization
+  apiKeyHeader: ApiKey
+  securityScheme:
+   - oauth_basic_auth_api_key_mandatory
+   - oauth2
+  visibility: PUBLIC
+  visibleRoles: []
+  visibleTenants: []
+  mediationPolicies: []
+  subscriptionAvailability: CURRENT_TENANT
+  subscriptionAvailableTenants: []
+  additionalProperties: []
+  additionalPropertiesMap: {}
+  accessControl: NONE
+  accessControlRoles: []
+  businessInformation: {}
+  corsConfiguration:
+    corsConfigurationEnabled: true
+    accessControlAllowOrigins:
+     - '*'
+    accessControlAllowCredentials: false
+    accessControlAllowHeaders:
+     - authorization
+     - Access-Control-Allow-Origin
+     - Content-Type
+     - SOAPAction
+     - apikey
+     - Internal-Key
+     - Ocp-Apim-Subscription-Key
+    accessControlAllowMethods:
+     - GET
+     - PUT
+     - POST
+     - DELETE
+     - PATCH
+     - OPTIONS
+  websubSubscriptionConfiguration:
+    enable: false
+    secret: ""
+    signingAlgorithm: SHA1
+    signatureHeader: x-hub-signature
+  createdTime: "1721276395920"
+  lastUpdatedTimestamp: "1721276510898"
+  lastUpdatedTime: 2024-07-18 09:51:50.898
+  endpointConfig:
+    endpoint_type: http
+    sandbox_endpoints:
+      url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/api
+    production_endpoints:
+      url: https://mcapseamtsohcmintegprd1.azure-api.net/empout/api
+  endpointImplementationType: ENDPOINT
+  scopes: []
+  operations:
+   -
+    id: ""
+    target: /value/GetEmployeeDetailWithAdditionalFromLegalEntityNLastUpdateDate
+    verb: GET
+    authType: None
+    throttlingPolicy: Unlimited
+    scopes: []
+    usedProductIds: []
+    operationPolicies:
+      request: []
+      response: []
+      fault: []
+  categories: []
+  keyManagers:
+   - all
+  advertiseInfo:
+    advertised: false
+    apiOwner: admin
+    vendor: WSO2
+  gatewayVendor: wso2
+  gatewayType: wso2/synapse
+  asyncTransportProtocols: []
+  organizationId: carbon.super
