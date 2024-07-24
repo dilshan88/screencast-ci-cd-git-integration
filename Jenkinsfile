@@ -44,7 +44,7 @@ pipeline    {
 			sh '''#!/bin/bash
 			apictl login dev -u admin -p admin -k
 			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
-			echo "API ------------------------------------------------"$apis
+			echo "API s------------------------------------"$apis"------------------------------------"
 			if [ -z "$apis" ]; 
                 then 
                     echo "======== No API Changes detected =========="; 
@@ -53,8 +53,7 @@ pipeline    {
 					array_length=${#apiArray[@]}
 					# Print the array length
 					echo "Array length: $array_length"
-                    for i in "${apiArray[@]}";
-                    do
+                    for i in "${apiArray[@]}"; do
 					    echo "apictl bundle -s "$i
                         apictl bundle -s $i
                      done
