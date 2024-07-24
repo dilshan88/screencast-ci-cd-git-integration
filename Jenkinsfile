@@ -47,6 +47,19 @@ pipeline    {
 			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | c:/jq -r '.API | .[] | .NickName')
 			echo "Param path :"$apis
 			apictl vcs status -e dev
+			if [ -z "$apis" ]; 
+                then 
+                    echo "======== No API Changes detected =========="; 
+                else 
+                    echo "Updated APIs :"$apis
+                    apiArray=($apis)
+                    for i in "${apiArray[@]}"
+                    do
+                        echo "$i"
+                        apictl bundle -s $i -d upload
+                     done
+                fi
+
 			#apictl bundle -s HRIS-v1 -d upload
 			#apictl import api -f C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/upload/HRIS_v1.zip --environment dev --params DeploymentArtifacts_HRIS-v1 --update -k
 			#apictl vcs deploy -e dev
