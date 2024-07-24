@@ -44,8 +44,6 @@ pipeline    {
 			sh '''#!/bin/bash
 			apictl login dev -u admin -p admin -k
 			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
-
-			
 			
 			if [ -z "$apis" ]; 
                 then 
@@ -57,8 +55,10 @@ pipeline    {
 					words=()
 					for i in $apis; do words+=($i) ; done
 					for word in ${words[@]}; do 
+						echo "=================="; 
 						echo $word ; 
 						apictl bundle -s $word
+						echo "=================="; 
 					done
 				fi
 
