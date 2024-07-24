@@ -57,7 +57,11 @@ pipeline    {
                         apictl bundle -s $api -d upload
 					done
 				fi
-
+			search_dir=C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/upload
+			for entry in "$search_dir"/*
+				do
+					echo "$entry"
+				done
 			#apictl bundle -s HRIS-v1 -d upload
 			#apictl import api -f C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/upload/HRIS_v1.zip --environment dev --params DeploymentArtifacts_HRIS-v1 --update -k
 			#apictl vcs deploy -e dev
