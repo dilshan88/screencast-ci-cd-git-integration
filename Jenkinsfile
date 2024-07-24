@@ -52,7 +52,7 @@ pipeline    {
                     apiArray=($apis)
                     for i in "${apiArray[@]}"
                     do
-						dt="$(echo "$i"|tr -d '\n')"
+						dt="$( sed 's/\\n//g' <<<"$i" )"
                         echo "======== API $dt =========="; 
                         apictl bundle -s $i -d upload
 					done
