@@ -43,7 +43,8 @@ pipeline    {
 		steps{
 			sh '''#!/bin/bash
 			apictl login dev -u admin -p admin -k
-			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | jq -r '.API | .[] | .NickName')
+			apictl vcs status -e dev
+			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
 			echo "API s------------------------------------"$apis"------------------------------------"
 			if [ -z "$apis" ]; 
                 then 
