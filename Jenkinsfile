@@ -69,18 +69,8 @@ pipeline    {
 	  stage('Update local repo') {
             steps {
                 sh '''#!/bin/bash
-                idFull=$(cat vcs.yaml)
-                arrId=(${idFull//: / })
-                repoId=${arrId[1]}
-                head=$(git rev-parse HEAD)
                 rm C:/ProgramData/Jenkins/.jenkins/workspace/gitconfig
-                echo "
-			repos:
-			$repoId:
-				environments:
-				dev:
-					lastAttemptedRev: $head" >> C:/ProgramData/Jenkins/.jenkins/workspace/gitconfig
-							'''
+				'''
 						}
 					}
 	
