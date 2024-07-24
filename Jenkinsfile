@@ -52,7 +52,7 @@ pipeline    {
                     apiArray=($apis)
                     for i in "${apiArray[@]}"
                     do
-                        echo "======== API ${i//[$'\t\r\n ']} =========="; 
+                        echo "======== API" ${i} | tr -d '\n'  "=========="; 
                         apictl bundle -s $i -d upload
 					done
 				fi
