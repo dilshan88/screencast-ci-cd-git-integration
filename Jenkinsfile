@@ -53,18 +53,13 @@ pipeline    {
 					array_length=${#apiArray[@]}
 					# Print the array length
 					words=()
-					for i in $apis; do words+=($i) ; done
+					for i in $apis; do words+=($i//\\n/) ; done
 					for word in ${words[@]}; do 
 						echo "==========1========"; 
 						echo $word ; 
 						apictl bundle -s $word
 						echo "===========2======="; 
 					done
-
-					for item in ${apiArray//\\n/ }
-						do
-						echo "Item: $item"
-						done
 				fi
 
 			#apictl bundle -s HRIS-v1 -d upload
