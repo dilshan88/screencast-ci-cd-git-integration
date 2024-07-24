@@ -54,7 +54,8 @@ pipeline    {
 					# Print the array length
 					words=()
 					for i in $apis; do 
-						words+=($i | xargs echo -n) ; 
+						$i=$i | xargs echo -n
+						words+=($i) ; 
 					done
 					for word in ${words[@]}; do 
 						echo "==========1========"; 
