@@ -52,6 +52,7 @@ pipeline    {
                     echo "======== No API Changes detected =========="; 
                 else 
                     apiArray=($apis)
+					echo $apiArray
                     for i in "${apiArray[@]}"
                     do
 					    echo "API ------------------------------------------------"$i
