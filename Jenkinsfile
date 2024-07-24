@@ -44,7 +44,7 @@ pipeline    {
 			sh '''#!/bin/bash
 
 			apictl login dev -u admin -p admin -k
-			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | jq -r '.NickName')
+			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/Program Files/jq.exe -r '.NickName')
 			echo "Param path :"$apis
 			echo PATH before is $PATH
                     PATH=$PATH:/usr/local/bin
