@@ -53,7 +53,9 @@ pipeline    {
 					array_length=${#apiArray[@]}
 					# Print the array length
 					words=()
-					for i in $apis; do words+=($i//\\n/) ; done
+					for i in $apis; do 
+						words+=($i | xargs echo -n) ; 
+					done
 					for word in ${words[@]}; do 
 						echo "==========1========"; 
 						echo $word ; 
