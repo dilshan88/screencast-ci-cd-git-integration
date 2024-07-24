@@ -52,7 +52,7 @@ pipeline    {
 					array_length=${#apiArray[@]}
 					# Print the array length
 					echo "Array length: $array_length"
-                    for i in "${apiArray[@]}"
+                    for i in "${apiArray[@]}";
                     do
 					    echo "API ------------------------------------------------"$i
                         apictl bundle -s $i
