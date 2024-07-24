@@ -55,11 +55,16 @@ pipeline    {
 					words=()
 					for i in $apis; do words+=($i) ; done
 					for word in ${words[@]}; do 
-						echo "=================="; 
+						echo "==========1========"; 
 						echo $word ; 
 						apictl bundle -s $word
-						echo "=================="; 
+						echo "===========2======="; 
 					done
+
+					for item in ${apiArray//\\n/ }
+						do
+						echo "Item: $item"
+						done
 				fi
 
 			#apictl bundle -s HRIS-v1 -d upload
