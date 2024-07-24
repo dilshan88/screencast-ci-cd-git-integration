@@ -45,9 +45,7 @@ pipeline    {
 			apictl login dev -u admin -p admin -k
 			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
 
-			words=()
-			for i in $apis; do words+=($i) ; done
-			for word in ${words[@]}; do echo $word ; done
+			
 			
 			if [ -z "$apis" ]; 
                 then 
@@ -56,12 +54,13 @@ pipeline    {
                     apiArray=($apis)
 					array_length=${#apiArray[@]}
 					# Print the array length
-					echo "Array length: $array_length"
-                    for i in "${apiArray[@]}"; do
-					    echo "apictl bundle -s "$i
-                        apictl bundle -s $i
-                     done
-                fi
+					words=()
+					for i in $apis; do words+=($i) ; done
+					for word in ${words[@]}; do 
+						echo $word ; 
+						apictl bundle -s $word
+					done
+				fi
 
 			#apictl bundle -s HRIS-v1 -d upload
 			#apictl import api -f C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/upload/HRIS_v1.zip --environment dev --params DeploymentArtifacts_HRIS-v1 --update -k
