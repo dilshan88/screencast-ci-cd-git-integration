@@ -44,17 +44,15 @@ pipeline    {
 			sh '''#!/bin/bash
 			apictl login dev -u admin -p admin -k
 			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
-			echo "Param path :"$apis
 			if [ -z "$apis" ]; 
                 then 
                     echo "======== No API Changes detected =========="; 
                 else 
-                    echo "Updated APIs :"$apis
                     apiArray=($apis)
                     for i in "${apiArray[@]}"
                     do
                         echo "$i"
-                        apictl bundle -s $i -d upload
+                        apictl bundle -s $i
                      done
                 fi
 
