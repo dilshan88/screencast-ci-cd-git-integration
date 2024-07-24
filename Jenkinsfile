@@ -44,11 +44,8 @@ pipeline    {
 			sh '''#!/bin/bash
 
 			apictl login dev -u admin -p admin -k
-			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq.exe -r '.NickName')
+			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | c:/jq -r '.API | .[] | .NickName')
 			echo "Param path :"$apis
-			echo PATH before is $PATH
-                    PATH=$PATH:/usr/local/bin
-                    echo PATH after is $PATH
 			apictl vcs status -e dev
 			#apictl bundle -s HRIS-v1 -d upload
 			#apictl import api -f C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/upload/HRIS_v1.zip --environment dev --params DeploymentArtifacts_HRIS-v1 --update -k
