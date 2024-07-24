@@ -45,7 +45,7 @@ pipeline    {
 			apictl login dev -u admin -p admin -k
 			apictl vcs status -e dev
 			apictl bundle -s HRIS-v1 -d upload
-			apictl import api -f C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/upload/HRIS-v1.zip --environment dev --params HRIS-v1 --update -k
+			apictl import api -f C:/ProgramData/Jenkins/.jenkins/workspace/CICD-PIPELINE-DEV/upload/HRIS_v1.zip --environment dev --params HRIS-v1 --update -k
 			#apictl vcs deploy -e dev
 			"""
 		}
