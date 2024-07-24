@@ -44,7 +44,7 @@ pipeline    {
 			sh '''#!/bin/bash
 
 			apictl login dev -u admin -p admin -k
-			apis=$(apictl vcs status -e dev)
+			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}")
 			echo "Param path :"$apis
 			apictl vcs status -e dev
 			#apictl bundle -s HRIS-v1 -d upload
