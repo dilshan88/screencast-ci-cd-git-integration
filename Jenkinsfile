@@ -42,11 +42,9 @@ pipeline    {
 	 stage('Deploy APIs to Dev Environment'){
 		steps{
 			sh '''#!/bin/bash
-
 			apictl login dev -u admin -p admin -k
-			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | c:/jq -r '.API | .[] | .NickName')
+			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
 			echo "Param path :"$apis
-			apictl vcs status -e dev
 			if [ -z "$apis" ]; 
                 then 
                     echo "======== No API Changes detected =========="; 
@@ -66,13 +64,6 @@ pipeline    {
 			'''
 		}
 	 }
-	  stage('Update local repo') {
-            steps {
-                sh '''#!/bin/bash
-                rm C:/ProgramData/Jenkins/.jenkins/workspace/gitconfig
-				'''
-						}
-					}
 	
 	}
 }
