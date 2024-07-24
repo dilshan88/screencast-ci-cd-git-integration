@@ -43,16 +43,15 @@ pipeline    {
 		steps{
 			sh '''#!/bin/bash
 			apictl login dev -u admin -p admin -k
-			apictl bundle -s HRIS-v1 -d upload
-            apictl bundle -s PetstoreAPI -d upload
-
 			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
 			if [ -z "$apis" ]; 
                 then 
                     echo "======== No API Changes detected =========="; 
                 else 
                     apiArray=($apis)
-					echo $apiArray
+					array_length=${#apiArray[@]}
+					# Print the array length
+					echo "Array length: $array_length"
                     for i in "${apiArray[@]}"
                     do
 					    echo "API ------------------------------------------------"$i
