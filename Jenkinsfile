@@ -48,7 +48,7 @@ pipeline    {
                 then 
                     echo "======== No API Changes detected =========="; 
                 else 
-                    apiArray=($apis)
+                    apiArray=("HRIS-v1" "PetstoreAPI")
 					array_length=${#apiArray[@]}
 					# Print the array length
 					echo "Array length: $array_length"
