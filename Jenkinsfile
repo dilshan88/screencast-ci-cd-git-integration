@@ -61,7 +61,7 @@ pipeline    {
 			for entry in "$search_dir"/*
 				do
 					echo "$entry"
-					string="${entry//\"}"
+					string=${entry##/*/}
 					echo $string
 				done
 			#apictl bundle -s HRIS-v1 -d upload
