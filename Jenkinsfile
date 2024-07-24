@@ -52,9 +52,9 @@ pipeline    {
                     apiArray=($apis)
                     for i in "${apiArray[@]}"
                     do
-						api_after_clean ="$( sed 's/\\n//g' <<<"$i" )"
-                        echo "======== API $api_after_clean =========="; 
-                        apictl bundle -s $api_after_clean -d upload
+						api ="$( sed 's/\\n//g' <<<"$i" )"
+                        echo "======== API $api =========="; 
+                        apictl bundle -s $api -d upload
 						echo "\n"
 					done
 				fi
