@@ -43,6 +43,9 @@ pipeline    {
 		steps{
 			sh '''#!/bin/bash
 			apictl login dev -u admin -p admin -k
+			apictl bundle -s HRIS-v1 -d upload
+            apictl bundle -s PetstoreAPI -d upload
+
 			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
 			if [ -z "$apis" ]; 
                 then 
@@ -51,7 +54,7 @@ pipeline    {
                     apiArray=($apis)
                     for i in "${apiArray[@]}"
                     do
-                        echo "$i"
+					    echo "API ------------------------------------------------"$i
                         apictl bundle -s $i
                      done
                 fi
