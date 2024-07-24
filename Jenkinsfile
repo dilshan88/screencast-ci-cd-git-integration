@@ -43,9 +43,12 @@ pipeline    {
 		steps{
 			sh '''#!/bin/bash
 			apictl login dev -u admin -p admin -k
-			apictl vcs status -e dev
 			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
-			echo "API s------------------------------------"$apis"------------------------------------"
+
+			words=()
+			for i in $apis; do words+=($i) ; done
+			for word in ${words[@]}; do echo $word ; done
+			
 			if [ -z "$apis" ]; 
                 then 
                     echo "======== No API Changes detected =========="; 
