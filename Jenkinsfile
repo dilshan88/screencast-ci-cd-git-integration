@@ -44,6 +44,7 @@ pipeline    {
 			sh '''#!/bin/bash
 			apictl login dev -u admin -p admin -k
 			apis=$(apictl vcs status -e dev --format="{{ jsonPretty . }}" | C:/jq -r '.API | .[] | .NickName')
+			echo "API ------------------------------------------------"$apis
 			if [ -z "$apis" ]; 
                 then 
                     echo "======== No API Changes detected =========="; 
