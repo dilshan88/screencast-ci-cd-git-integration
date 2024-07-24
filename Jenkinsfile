@@ -50,18 +50,10 @@ pipeline    {
                     echo "======== No API Changes detected =========="; 
                 else 
                     apiArray=($apis)
-					array_length=${#apiArray[@]}
-					# Print the array length
-					words=()
-					for i in $apis; do 
-						$i=$i | xargs echo -n
-						words+=($i) ; 
-					done
-					for word in ${words[@]}; do 
-						echo "==========1========"; 
-						echo $word ; 
-						apictl bundle -s $word
-						echo "===========2======="; 
+                    for i in "${apiArray[@]}"
+                    do
+                        echo "======== API $i =========="; 
+                        apictl bundle -s $i -d upload
 					done
 				fi
 
