@@ -54,7 +54,7 @@ pipeline    {
                     do
 						dt="$( sed 's/\\n//g' <<<"$i" )"
                         echo "======== API $dt =========="; 
-                        apictl bundle -s $i -d upload
+                        apictl bundle -s $dt -d upload
 					done
 				fi
 
