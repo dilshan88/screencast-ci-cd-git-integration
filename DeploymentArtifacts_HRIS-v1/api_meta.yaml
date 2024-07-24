@@ -3,5 +3,5 @@ deploy:
     preserveProvider: true
     rotateRevision: false
     update: true
-name: Calculator
-version: "1.0"
+name: HRIS
+version: v1
